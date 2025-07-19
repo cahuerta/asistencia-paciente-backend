@@ -3,10 +3,17 @@ import cors from 'cors';
 import pacienteRoute from './routes/paciente.js';
 
 const app = express();
+const port = process.env.PORT || 10000;
+
 app.use(cors());
 app.use(express.json());
 
 app.use('/api/paciente', pacienteRoute);
 
-const PORT = process.env.PORT || 10000;
-app.listen(PORT, () => console.log(`Servidor corriendo en puerto ${PORT}`));
+app.get('/', (req, res) => {
+  res.send('Servidor backend en http://localhost:' + port);
+});
+
+app.listen(port, () => {
+  console.log(`Servidor corriendo en puerto ${port}`);
+});
