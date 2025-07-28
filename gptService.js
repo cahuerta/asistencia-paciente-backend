@@ -11,7 +11,7 @@ Descripción de los síntomas: ${datos.descripcion}.
 Indica los exámenes imagenológicos sugeridos y la especialidad médica adecuada para consulta.`;
 
     const respuesta = await openai.chat.completions.create({
-        model: "gpt-4",
+        model: "gpt-3.5",
         messages: [{ role: "user", content: prompt }],
     });
 
